@@ -18,7 +18,7 @@ def proxy(device_name):
             print('<= ' + str(rxmsg))
 
 parser = argparse.ArgumentParser(description='Proxy MIDI connection')
-parser.add_argument('target')
+parser.add_argument('target', choices=mido.get_output_names(), help='Target device name')
 
 args = parser.parse_args()
 proxy(args.target)
