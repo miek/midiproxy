@@ -57,3 +57,6 @@ This program connects to the input and output of a target device, creates virtua
     => F0 42 40 00 01 13 00 1F 12 00 F7
     <= F0 42 40 00 01 13 00 5F 42 00 F7
 
+`=>` signifies a message sent from the application to the target device
+
+`<=` signifies a message sent from the target device to the application
