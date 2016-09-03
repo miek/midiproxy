@@ -12,11 +12,11 @@ def proxy(device_name):
     while True:
         for txmsg in proxy_input.iter_pending():
             target_output.send(txmsg)
-            print('=> ' + str(txmsg))
+            print('=> ' + txmsg.hex())
 
         for rxmsg in target_input.iter_pending():
             proxy_output.send(rxmsg)
-            print('<= ' + str(rxmsg))
+            print('<= ' + rxmsg.hex())
 
 parser = argparse.ArgumentParser(description='Proxy MIDI connection')
 parser.add_argument('target', choices=mido.get_output_names(), help='Target device name')
