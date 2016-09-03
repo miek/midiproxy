@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 import mido
+import time
 mido.set_backend('mido.backends.rtmidi')
 
 def proxy(device_name):
@@ -17,6 +18,8 @@ def proxy(device_name):
         for rxmsg in target_input.iter_pending():
             proxy_output.send(rxmsg)
             print('<= ' + rxmsg.hex())
+
+	time.sleep(0.001)
 
 parser = argparse.ArgumentParser(description='Proxy MIDI connection')
 parser.add_argument('target', choices=mido.get_output_names(), help='Target device name')
